@@ -9,11 +9,7 @@
 
 function validateCount(value) {
     try {
-        let result = parseCount(value);
-        if(isNaN(result)) {
-            throw new Error('Невалидное значение');
-        }
-        return result;
+        return parseCount(value);
     } catch(error) {
         return error;
     }
@@ -31,13 +27,13 @@ class Triangle {
     }
     
     get perimeter() {
-        return this._perimeter = this.a + this.b + this.c;
+        return this.a + this.b + this.c;
     }
 
     get area() {
-        let p = this._perimeter / 2;
+        let p = this.perimeter / 2;
         let totalArea = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
-        return this._area = Number(totalArea.toFixed(3));
+        return Number(totalArea.toFixed(3));
     }
 }
 
